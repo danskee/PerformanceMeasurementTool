@@ -64,7 +64,7 @@ namespace Performance_Measurement_Tool
             this.LabelAbout.Name = "LabelAbout";
             this.LabelAbout.Size = new System.Drawing.Size(130, 26);
             this.LabelAbout.TabIndex = 1;
-            this.LabelAbout.Text = "Version 1.0.0, 64-bit\r\nCopyright © 2021 Danske";
+            this.LabelAbout.Text = "Version 1.0.1, 64-bit\r\nCopyright © 2021 Danske";
             // 
             // Line
             // 

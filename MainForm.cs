@@ -21,10 +21,12 @@
 
 using System;
 using System.IO;
+using System.Media;
 using Microsoft.Win32;
 using System.Diagnostics;
 using System.Windows.Forms;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace Performance_Measurement_Tool
 {
@@ -33,6 +35,12 @@ namespace Performance_Measurement_Tool
         AboutDialog AboutDialog = new AboutDialog();
         LicenseAgreementForm LicenseAgreementForm = new LicenseAgreementForm();
         RegistryKey Settings = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\PerformanceMeasurementTool", true);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vk);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern bool UnregisterHotKey(IntPtr hWnd, int id);
 
         public MainForm()
         {
@@ -97,10 +105,12 @@ namespace Performance_Measurement_Tool
             }
             else
             {
-                DirectoryInfo a = Directory.CreateDirectory(TextBoxOutputFolder.Text);
+                Directory.CreateDirectory(TextBoxOutputFolder.Text);
             }
 
             ButtonApplySettings_Click(sender, e);
+
+            RegisterHotkey();
         }
 
         private void MenuItemExit_Click(object sender, EventArgs e)
@@ -288,6 +298,8 @@ namespace Performance_Measurement_Tool
                     }
                     else
                     {
+                        UnregisterHotKey(this.Handle, 1);
+                        RegisterHotKey(this.Handle, 1, (int)4, e.KeyCode.GetHashCode());
                         TextBoxCaptureHotkey.Text = "Shift + " + e.KeyCode.ToString();
                     }
                 }
@@ -305,6 +317,8 @@ namespace Performance_Measurement_Tool
                     }
                     else
                     {
+                        UnregisterHotKey(this.Handle, 1);
+                        RegisterHotKey(this.Handle, 1, (int)2, e.KeyCode.GetHashCode());
                         TextBoxCaptureHotkey.Text = "Control + " + e.KeyCode.ToString();
                     }
                 }
@@ -322,6 +336,8 @@ namespace Performance_Measurement_Tool
                     }
                     else
                     {
+                        UnregisterHotKey(this.Handle, 1);
+                        RegisterHotKey(this.Handle, 1, (int)1, e.KeyCode.GetHashCode());
                         TextBoxCaptureHotkey.Text = "Alt + " + e.KeyCode.ToString();
                     }
                 }
@@ -334,6 +350,8 @@ namespace Performance_Measurement_Tool
                 }
                 else
                 {
+                    UnregisterHotKey(this.Handle, 1);
+                    RegisterHotKey(this.Handle, 1, (int)0, e.KeyCode.GetHashCode());
                     TextBoxCaptureHotkey.Text = e.KeyCode.ToString();
                 }
             }
@@ -433,6 +451,44 @@ namespace Performance_Measurement_Tool
             ButtonApplySettings_Click(sender, e);
         }
 
+        private void RegisterHotkey()
+        {
+            Keys a;
+            Enum.TryParse(TextBoxCaptureHotkey.Text.Replace("Shift + ", "").Replace("Control + ", "").Replace("Alt + ", ""), out a);
+
+            if (TextBoxCaptureHotkey.Text.Contains("Shift"))
+            {
+                UnregisterHotKey(this.Handle, 1);
+                RegisterHotKey(this.Handle, 1, (int)4, a.GetHashCode());
+            }
+            else if (TextBoxCaptureHotkey.Text.Contains("Control"))
+            {
+                UnregisterHotKey(this.Handle, 1);
+                RegisterHotKey(this.Handle, 1, (int)2, a.GetHashCode());
+            }
+            else if (TextBoxCaptureHotkey.Text.Contains("Alt"))
+            {
+                UnregisterHotKey(this.Handle, 1);
+                RegisterHotKey(this.Handle, 1, (int)1, a.GetHashCode());
+            }
+            else
+            {
+                UnregisterHotKey(this.Handle, 1);
+                RegisterHotKey(this.Handle, 1, (int)0, a.GetHashCode());
+            }
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+
+            if (m.Msg == 0x0312)
+            {
+                SoundPlayer simpleSound = new SoundPlayer(@"C:\Windows\Media\Windows Pop-up Blocked.wav");
+                simpleSound.Play();
+            }
+        }
+
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             foreach (Process p in Process.GetProcesses())
@@ -442,6 +498,8 @@ namespace Performance_Measurement_Tool
                     p.Kill();
                 }
             }
+
+            UnregisterHotKey(this.Handle, 1);
         }
     }
 }
