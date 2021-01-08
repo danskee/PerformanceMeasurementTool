@@ -142,8 +142,9 @@ namespace Performance_Measurement_Tool
             "mlc",
             "regedit",
             "SSD-Z",
-            "team",
+            "steam",
             "steamwebhelper",
+            "msvsmon",
             "GalaxyClientHelper",
             "GameBar",
             "Microsoft.Notes",
@@ -258,20 +259,16 @@ namespace Performance_Measurement_Tool
             "ServiceHub.SettingsHost",
             "ServiceHub.RoslynCodeAnalysisService"});
 
+            ListBoxProcesses.Items.Clear();
+
             foreach (Process p in Process.GetProcesses())
             {
-                if (ListBoxProcesses.Items.Contains(p.ProcessName))
+                if (IgnorableProcesses.Contains(p.ProcessName))
                 {
                 }
                 else
                 {
-                    if (IgnorableProcesses.Contains(p.ProcessName))
-                    {
-                    }
-                    else
-                    {
-                        ListBoxProcesses.Items.Add(p.ProcessName);
-                    }
+                    ListBoxProcesses.Items.Add(p.ProcessName);
                 }
             }
         }
