@@ -1,4 +1,5 @@
 # Performance Measurement Tool
+![Performance Measurement Tool](https://cdn.discordapp.com/attachments/759162962325143623/797172693144830002/unknown.png)
 
 ## Description
 A lightweight performance measurement tool for Windows based on PresentMon.
