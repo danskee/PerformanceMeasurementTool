@@ -2,7 +2,7 @@
 ![Performance Measurement Tool](https://cdn.discordapp.com/attachments/759162962325143623/797172693144830002/unknown.png)
 
 ## Description
-A lightweight performance measurement tool for Windows based on PresentMon.
+A lightweight performance measurement tool for Windows based on PresentMon. It stores settings in registry in the following path: "HKEY_CURRENT_USER\Software\PerformanceMeasurementTool".
 
 ## Usage
 Select your desired application/game to capture information from from the process list, your desired capture hotkey (90% of hotkeys should work), your desired capture delay (0 seconds means it's instant), your desired capture time (0 seconds means it'll capture til you press the hotkey again) and your desired output folder where PresentMon will place the CSV with the capture data in. Then, press Apply Settings, hop in to the application/game and start capturing data. For analyzing the data, use [CapFrameX](https://github.com/CXWorld/CapFrameX).
