@@ -12,7 +12,7 @@ Select your desired application/game to capture information from from the proces
 - .NET Framework 4.6
 
 ## Donation
-- [PayPal](https://www.paypal.me/dansketweaks)
+- Bitcoin: bc1q6wp87pk0papdj7ujcl5v22w0854n5jn8u2dwr7
 
 ## License
 Performance Measurement Tool is licensed under the [GNU GPL v3](https://www.gnu.org/licenses/gpl-3.0.en.html) license. For more details, see the [LICENSE](https://github.com/danskee/PerformanceMeasurementTool/blob/main/LICENSE).
