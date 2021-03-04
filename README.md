@@ -1,5 +1,5 @@
 # Performance Measurement Tool
-![Performance Measurement Tool](https://cdn.discordapp.com/attachments/759162962325143623/797172693144830002/unknown.png)
+![Performance Measurement Tool](https://github.com/danskee/PerformanceMeasurementTool/blob/main/screenshot.png)
 
 ## Description
 A lightweight performance measurement tool for Windows based on PresentMon. It stores settings in registry in the following path: "HKEY_CURRENT_USER\Software\PerformanceMeasurementTool".
