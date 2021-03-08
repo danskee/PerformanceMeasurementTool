@@ -32,7 +32,7 @@ namespace Performance_Measurement_Tool
 {
     public partial class MainForm : Form
     {
-        AboutDialog AboutDialog = new AboutDialog("1.0.4");
+        AboutDialog AboutDialog = new AboutDialog("1.0.5");
         LicenseAgreementDialog LicenseAgreementDialog = new LicenseAgreementDialog();
         RegistryKey Settings = Registry.CurrentUser.CreateSubKey(@"SOFTWARE\PerformanceMeasurementTool", true);
 

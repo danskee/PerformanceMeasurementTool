@@ -44,7 +44,6 @@ namespace Performance_Measurement_Tool
             this.Line = new System.Windows.Forms.Label();
             this.LabelCopyright = new System.Windows.Forms.Label();
             this.ButtonClose = new System.Windows.Forms.Button();
-            this.ButtonDonate = new System.Windows.Forms.Button();
             this.LinkGithub = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
@@ -100,17 +99,6 @@ namespace Performance_Measurement_Tool
             this.ButtonClose.UseVisualStyleBackColor = true;
             this.ButtonClose.Click += new System.EventHandler(this.ButtonClose_Click);
             // 
-            // ButtonDonate
-            // 
-            this.ButtonDonate.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.ButtonDonate.Location = new System.Drawing.Point(192, 88);
-            this.ButtonDonate.Name = "ButtonDonate";
-            this.ButtonDonate.Size = new System.Drawing.Size(75, 23);
-            this.ButtonDonate.TabIndex = 5;
-            this.ButtonDonate.Text = "Donate";
-            this.ButtonDonate.UseVisualStyleBackColor = true;
-            this.ButtonDonate.Click += new System.EventHandler(this.ButtonDonate_Click);
-            // 
             // LinkGithub
             // 
             this.LinkGithub.ActiveLinkColor = System.Drawing.SystemColors.ControlText;
@@ -131,7 +119,6 @@ namespace Performance_Measurement_Tool
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(360, 196);
             this.Controls.Add(this.LinkGithub);
-            this.Controls.Add(this.ButtonDonate);
             this.Controls.Add(this.ButtonClose);
             this.Controls.Add(this.LabelCopyright);
             this.Controls.Add(this.Line);
@@ -157,7 +144,6 @@ namespace Performance_Measurement_Tool
         private System.Windows.Forms.Label Line;
         private System.Windows.Forms.Label LabelCopyright;
         private System.Windows.Forms.Button ButtonClose;
-        private System.Windows.Forms.Button ButtonDonate;
         private System.Windows.Forms.LinkLabel LinkGithub;
     }
 }

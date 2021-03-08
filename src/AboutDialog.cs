@@ -45,13 +45,6 @@ namespace Performance_Measurement_Tool
             Process.Start("https://github.com/danskee");
         }   
 
-        private void ButtonDonate_Click(object sender, EventArgs e)
-        {
-            string btcaddress = "bc1q6wp87pk0papdj7ujcl5v22w0854n5jn8u2dwr7";
-            Clipboard.SetText(btcaddress);
-            MessageBox.Show("Succesfully copied Danske's Bitcoin address (" + btcaddress + ") to your clipboard.", "Donation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
         private void ButtonClose_Click(object sender, EventArgs e)
         {
             this.Close();
