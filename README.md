@@ -12,6 +12,7 @@ Select your desired application/game to capture information from from the proces
 - .NET Framework 4.6
 
 ## Donation
+- Litecoin: MJketZj1rmScPv6e9u3hS5UgyGuRWHMzZa
 - Bitcoin: bc1q6wp87pk0papdj7ujcl5v22w0854n5jn8u2dwr7
 - Ethereum: 0x1a6CEA1B5d773E4d2409B80a26AAb093348694E3
 - Monero: 42mVvcoxD2BDD2CEYkEmXoYLUGV1ywCffJ2aqq8BtHLCD91cKGXa7CGMSL1m2skTueMcZqiJTCDErjJ4eC4CE1aUNmmxGTL
